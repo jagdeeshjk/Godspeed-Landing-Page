@@ -93,8 +93,8 @@ godspeed-landing-page/
 
 ## 🧑‍💻 Author
 
-Made with ❤️ by \[Jagdeesh Meena]
-\[https://www.linkedin.com/in/jagdeesh-meena/]
-\[https://github.com/jagdeeshjk]
+Made by \[Jagdeesh Meena]
+\[https://www.linkedin.com/in/jagdeesh-meena/ ]
+\[https://github.com/jagdeeshjk ]
 
 ---

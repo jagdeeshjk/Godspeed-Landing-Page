@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Godspeed Landing Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    background-color: #f9f9f9;
+}
+
+/* Container and Sections */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* General Section Styling */
+section {
+    padding: 80px 0;
+    text-align: center;
+    position: relative;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Hero Section */
+.hero {
+    background: #0d0d0d;
+    color: white;
+    padding: 120px 20px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.hero h1 {
+    font-size: 4.5rem;
+    margin: 0;
+    font-weight: 1000;
+    font-family: 'times new roman', serif;
+}
+
+.hero p {
+    font-size: 1.3rem;
+    margin-top: 20px;
+    font-weight: 400;
+}
+
+.cta-button {
+    background: linear-gradient(to right, #e6330f, #ff6347);
+    color: white;
+    padding: 16px 32px;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    margin-top: 30px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.cta-button:hover {
+    background: linear-gradient(to right, #ff2c00, #ff4500);
+    transform: translateY(-5px);
+}
+
+/* Product, Team, About, and Pricing Sections */
+.product, .about, .team, .pricing {
+    background-color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Adding shading effect at the bottom of each section */
+.product::after, .about::after, .team::after, .pricing::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.1));
+}
+
+/* Common Box Style for All Sections */
+.product .content .item, 
+.about .content .item,
+.team .content .item {
+    background-color: white;
+    padding: 25px;
+    border-radius: 12px;
+    width: 280px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, background-color 0.3s;
+}
+
+/* Hover Effect for Items */
+.product .content .item:hover,
+.about .content .item:hover,
+.team .content .item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+    background-color: #f9f9f9;
+}
+
+/* Team Section */
+.team {
+    display: flex;
+    flex-wrap: wrap; /* allows wrapping into multiple rows */
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px;
+    max-width: 100%;
+}
+
+.team-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+.team-table td {
+    padding: 15px;
+    text-align: center;
+    border-radius: 12px;
+    color: #ddd;
+    width: 400px;
+}
+
+.team .team-member {
+    border-radius: 12px;
+    padding: 20px;
+    max-width: 300px;
+    min-height: 280px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    flex: 1 1 250px;
+    color: #ddd;
+}
+
+.team .team-member img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.team .team-member:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+}
+
+.team h3 {
+    margin-top: 15px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #444;
+}
+
+.team p {
+    font-size: 1rem;
+    color: #444;
+    text-align: center;
+    line-height: 1.5;
+}
+
+/* About Section */
+.about h2 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    margin-bottom: 50px;
+    color: #333;
+}
+
+.about .content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.about .content .item {
+    background-color: white;
+    padding: 25px;
+    border-radius: 12px;
+    width: 280px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s;
+}
+
+.about .content .item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+    background-color: #f0f8ff;
+}
+
+.about .content .item h3 {
+    font-size: 1.7rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.about .content .item p {
+    font-size: 1.1rem;
+    color: #777;
+    line-height: 1.6;
+}
+.team h2 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+/* Product Section */
+.product {
+    padding: 50px 20px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+}
+
+.product p {
+    font-size: 1rem;
+    color: #444;
+    text-align: center;
+    line-height: 1.5;
+}
+
+.product h2 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.product .content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+/* Pricing Section */
+.pricing .pricing-plan {
+    display: inline-block;
+    width: 280px;
+    margin: 20px;
+    padding: 30px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pricing .pricing-plan:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.pricing h2 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    margin-bottom: 30px;
+    color: #333;
+}
+.pricing h3 {
+    font-size: 1.7rem;
+    font-weight: 800;
+    margin-bottom: 25px;
+}
+
+.pricing p {
+    font-size: 1.2rem;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+.product, .about, .team, .pricing {
+    background: linear-gradient(to right, #ffffff, #f2f6ff); /* soft white to gentle blue */
+    background-image: repeating-linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.015),
+        rgba(0, 0, 0, 0.015) 2px,
+        transparent 2px,
+        transparent 6px
+    );
+    background-blend-mode: overlay;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero {
+    background-image: repeating-linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0.03),
+        rgba(255, 255, 255, 0.03) 2px,
+        transparent 2px,
+        transparent 6px
+    );
+}
+
+/* Footer Section */
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    background: #0d0d0d;
+    color: white;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.8rem;
+    }
+
+    .cta-button {
+        padding: 14px 28px;
+        font-size: 1rem;
+    }
+
+    .product .content,
+    .team .content,
+    .about .content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .pricing .pricing-plan {
+        width: 90%;
+        margin: 10px 0;
+    }
+}
+.scroll-btn {
+    position: fixed;
+    right: 20px;
+    bottom: 30px;
+    width: 45px;
+    height: 45px;
+    font-size: 22px;
+    border: none;
+    border-radius: 50%;
+    background: linear-gradient(to right, #ff4c29, #ff6347);
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    display: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.scroll-btn:hover {
+    transform: scale(1.1);
+    background: linear-gradient(to right, #ff2c00, #ff4500);
+}
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1001;
+    background: #ffffff;
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    transition: background 0.3s ease;
+}
+
+.theme-toggle:hover {
+    background: #eeeeee;
+}
+
+/* Dark mode overrides */
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+/* General Body Styling */
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+/* Container and Sections */
+body.dark-mode .container {
+    color: #e0e0e0;
+}
+
+/* General Section Styling */
+body.dark-mode section {
+    background-color: #1e1e1e;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Hero Section */
+body.dark-mode .hero {
+    background: #0d0d0d;
+    color: white;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+body.dark-mode .hero h1 {
+    font-size: 4.5rem;
+    margin: 0;
+    font-weight: 1000;
+}
+
+body.dark-mode .hero p {
+    font-size: 1.3rem;
+    margin-top: 20px;
+}
+
+/* CTA Button */
+body.dark-mode .cta-button {
+    background: linear-gradient(to right, #e6330f, #ff6347);
+    color: white;
+}
+
+body.dark-mode .cta-button:hover {
+    background: linear-gradient(to right, #ff2c00, #ff4500);
+}
+
+/* Product, Team, About, and Pricing Sections */
+body.dark-mode .product,
+body.dark-mode .about,
+body.dark-mode .team,
+body.dark-mode .pricing {
+    background-color: #1e1e1e;
+}
+
+/* Shading effect for sections */
+body.dark-mode .product::after,
+body.dark-mode .about::after,
+body.dark-mode .team::after,
+body.dark-mode .pricing::after {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1));
+}
+
+/* Common Box Style for All Sections */
+body.dark-mode .product .content .item,
+body.dark-mode .about .content .item,
+body.dark-mode .team .content .item {
+    background-color: #2a2a2a;
+    color: #e0e0e0;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode .product .content .item:hover,
+body.dark-mode .about .content .item:hover,
+body.dark-mode .team .content .item:hover {
+    background-color: #333;
+}
+
+/* Team Section */
+body.dark-mode .team {
+    background-color: #2a2a2a;
+}
+
+body.dark-mode .team .team-member {
+    background-color: #3a3a3a;
+    color: #e0e0e0;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .team .team-member:hover {
+    background-color: #444;
+}
+
+body.dark-mode .team h3,
+body.dark-mode .team p {
+    color: #e0e0e0;
+}
+
+/* About Section */
+body.dark-mode .about h2 {
+    color: #fff;
+}
+
+body.dark-mode .about .content .item {
+    background-color: #333;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .about .content .item:hover {
+    background-color: #444;
+}
+
+body.dark-mode .about .content .item h3 {
+    color: #fff;
+}
+
+body.dark-mode .about .content .item p {
+    color: #bbb;
+}
+
+/* Product Section */
+body.dark-mode .product {
+    background-color: #333;
+    color: #e0e0e0;
+}
+
+body.dark-mode .product .content {
+    background-color: #2a2a2a;
+}
+
+/* Pricing Section */
+body.dark-mode .pricing .pricing-plan {
+    background-color: #333;
+    border: 1px solid #444;
+    color: #e0e0e0;
+}
+
+body.dark-mode .pricing .pricing-plan:hover {
+    background-color: #444;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode .pricing h2,
+body.dark-mode .pricing h3 {
+    color: #fff;
+}
+
+body.dark-mode .pricing p {
+    color: #bbb;
+}
+
+/* Footer Section */
+body.dark-mode footer {
+    background: #0d0d0d;
+    color: white;
+}
+
+/* Scroll Button */
+body.dark-mode .scroll-btn {
+    background: linear-gradient(to right, #ff4c29, #ff6347);
+    color: white;
+}
+
+body.dark-mode .scroll-btn:hover {
+    background: linear-gradient(to right, #ff2c00, #ff4500);
+}
+
+/* Theme Toggle Button */
+body.dark-mode .theme-toggle {
+    background: #444;
+    color: white;
+}
+
+body.dark-mode .theme-toggle:hover {
+    background: #555;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    body.dark-mode .hero h1 {
+        font-size: 2.8rem;
+    }
+
+    body.dark-mode .cta-button {
+        padding: 14px 28px;
+        font-size: 1rem;
+    }
+
+    body.dark-mode .product .content,
+    body.dark-mode .team .content,
+    body.dark-mode .about .content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    body.dark-mode .pricing .pricing-plan {
+        width: 90%;
+        margin: 10px 0;
+    }
+}
+body.dark-mode .team h2 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    margin-bottom: 30px;
+    color: #e0e0e0;  /* Lighter text color for dark mode */
+}
+
+body.dark-mode .product p {
+    font-size: 1rem;
+    color: #e0e0e0;  /* Lighter text color for dark mode */
+    text-align: center;
+    line-height: 1.5;
+}
+
+body.dark-mode .product h2 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    margin-bottom: 30px;
+    color: #e0e0e0;  /* Lighter text color for dark mode */
+}
+
+
+
+</style>
+    
+</head>
+<body>
+<script>
+  // Check user's saved preference
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggleButton = document.querySelector('.theme-toggle');
+    const isDark = localStorage.getItem('theme') === 'dark';
+
+    if (isDark) {
+      document.body.classList.add('dark-mode');
+    }
+
+    toggleButton.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      const darkModeEnabled = document.body.classList.contains('dark-mode');
+      localStorage.setItem('theme', darkModeEnabled ? 'dark' : 'light');
+    });
+  });
+</script>
+
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <button id="theme-toggle" class="theme-toggle">🌙</button>
+        <div class="container">
+            <h2>Introducing the Abode of Precision</h2>
+            <h1>GODSPEED_</h1>
+            <p><i>"Where innovation meets immediacy"</i></p>
+            <button class="cta-button" onclick="window.location.href='#pricing'">Get Started</button>
+        </div>
+    </section>
+
+    <!-- Product Section -->
+    <section class="product" id="product">
+        <div class="container">
+            <h2>Our Product</h2><b>
+            <p>Godspeed is designed to help you achieve more in less time.</p>
+            <p>Build faster and scale smarter with Godspeed’s AI tech, expert network, and concierge support — 360° coverage for tech, talent, and growth without the startup chaos...</p></b>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team" id="team">
+    <div class="container">
+        <h2>Meet Our Team</h2>
+        <table class="team-table">
+            <tr>
+                <td class="team-member">
+                    <img src="https://res.cloudinary.com/dfuwiecz0/image/upload/v1696838236/Team%20photos/ayush_figios.jpg" alt="Team Member 1">
+                    <h3>Ayush Ghai</h3>
+                    <p>Chief Alchemist</p>
+                </td>
+                <td class="team-member">
+                    <img src="https://godspeed.systems/files/aksharGhaiPic2.jpeg" alt="Team Member 2">
+                    <h3>Akshar Ghai</h3>
+                    <p>Backstage Brain</p>
+                </td>
+                <td class="team-member">
+                    <img src="https://godspeed.systems/files/alexander1.JPG" alt="Team Member 3">
+                    <h3>Alexander Rhomberg</h3>
+                    <p>Angel with a ChequeBook</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="team-member">
+                    <img src="https://godspeed.systems/files/tanvirWalia.jpg" alt="Team Member 4">
+                    <h3>Tanvir Walia</h3>
+                    <p>The Startup Sherpa</p>
+                </td>
+                <td class="team-member">
+                    <img src="https://godspeed.systems/files/viditPic.jpeg" alt="Team Member 5">
+                    <h3>Vidit Chaudhary</h3>
+                    <p>Chief Do-O</p>
+                </td>
+                <td class="team-member">
+                    <img src="https://godspeed.systems/files/ashutosh.jpg" alt="Team Member 6">
+                    <h3>Ashutosh Tripathi</h3>
+                    <p>Devx Spell Caster</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="team-member">
+                    <img src="https://godspeed.systems/files/rajatTripathi.jpg" alt="Team Member 7">
+                    <h3>Rajat Tripathi</h3>
+                    <p>AI Hacker</p>
+                </td>
+                <td class="team-member">
+                    <img src="https://godspeed.systems/files/sakshiArora.jpeg" alt="Team Member 8">
+                    <h3>Sakshi Arora</h3>
+                    <p>Scrum Boss</p>
+                </td>
+                <td class="team-member">
+                    <img src="https://godspeed.systems/files/yaswanth.jpg" alt="Team Member 9">
+                    <h3>Yaswanth</h3>
+                    <p>Quantum Coder</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="team-member">
+                    <img src="https://godspeed.systems/files/pushpendra.jpg" alt="Team Member 10">
+                    <h3>Pushpendra Singh</h3>
+                    <p>Dev Engagement Sorcerer</p>
+                </td>
+                <td class="team-member">
+                    <img src="https://godspeed.systems/files/dharuv.jpeg" alt="Team Member 11">
+                    <h3>Dharuv Manchanda</h3>
+                    <p>Full Stack Hustler</p>
+                </td>
+                <td class="team-member">
+                    <img src="https://godspeed.systems/files/sanjay.jpeg" alt="Team Member 12">
+                    <h3>Sanjay Kapoor</h3>
+                    <p>Nourishing Caretaker</p>
+                </td>
+            </tr>
+        </table>
+    </div>
+</section>
+
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <p><b>At Godspeed, we help founders build and scale their startups with AI-powered technology, a supportive network, and concierge services. We offer 360° support across technology, talent, and business, eliminating common startup challenges. Our mission is to make advanced tools accessible and help tech organizations modernize, driving faster and more agile growth</b></p>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <h2>Pricing Plans</h2>
+            <div class="pricing-plan">
+                <h3>Basic Plan</h3>
+                <p>$19/month</p>
+                <p>Access to basic features</p>
+                <button class="cta-button" onclick="window.location.href='https://godspeed.systems/'">Get Started</button>
+
+
+            </div>
+            <div class="pricing-plan">
+                <h3>Pro Plan</h3>
+                <p>$49/month</p>
+                <p>Access to all premium features</p>
+                <button class="cta-button" onclick="window.location.href='https://godspeed.systems/';">Get Started</button>
+
+
+            </div>
+            <div class="pricing-plan">
+                <h3>Enterprise Plan</h3>
+                <p>Tailored Solutions</p>
+                <p>Customized for your business</p>
+                <button class="cta-button" onclick="window.location.href='https://godspeed.systems/';">Get Started</button>
+
+
+            </div>
+        </div>
+    </section>
+<!-- Scroll to Top Button -->
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Godspeed. All Rights Reserved.</p>
+    </footer>
+    <!-- Scroll to Top Button -->
+
+<button onclick="scrollToTop()" class="scroll-btn" id="scrollBtn" title="Go to top">↑</button>
+<script>
+  // Show button when scrolled down 100px
+  window.onscroll = function () {
+    const btn = document.getElementById("scrollBtn");
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+      btn.style.display = "block";
+    } else {
+      btn.style.display = "none";
+    }
+  };
+
+  // Smooth scroll to top
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+
+
+</body>
+
+</html>

@@ -77,19 +77,6 @@ godspeed-landing-page/
 
 ---
 
-## ✨ Sample Enhancements (Future Work)
-
-* Add JavaScript for dynamic content (like a carousel or modal).
-* Fetch pricing or team data from a JSON or API.
-* Integrate contact form and backend.
-
----
-
-## 📷 Preview
-
-*(Add screenshots or a GIF demo of your page here)*
-
----
 
 ## 🧑‍💻 Author
 
